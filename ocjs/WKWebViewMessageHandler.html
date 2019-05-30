@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+<title>Test</title>
+
+<script>
+    function shareClick() {        window.webkit.messageHandlers.showMsg.postMessage({title:'uniapp',content:'一切从零开始',url:'https://github.com/uniapp10'});
+    }
+    //分享回调结果显示
+    function shareResult(channel_id,share_channel,share_url) {
+        var content = channel_id+","+share_channel+","+share_url;
+        alert(content);
+        document.getElementById("returnValue").value = content;
+    }
+
+    function postClick() {
+        var string = document.getElementById("textValue").value;
+        window.webkit.messageHandlers.postClick.postMessage(string);
+    }
+
+    //JS执行window.webkit.messageHandlers.Camera.postMessage(<messageBody>)
+    function cameraClick() {
+        window.webkit.messageHandlers.selectPicture.postMessage(null);
+    }
+
+    //调用相册回调结果显示
+    function cameraResult(result) {
+        alert(result);
+        document.getElementById("returnValue").value = result;
+    }
+</script>
+
+</head>
+
+<body>
+    <a href="http://www.baidu.com" >跳转</a>
+    <div>
+        <form action="#" method="post">
+            <input  type="search" placeholder="Quick Search">
+            <button type="submit"><span></span>提交表单</button>
+        </form>
+    </div>
+    <div>
+        <input  type="text" placeholder="输入内容" id ="textValue">
+        <button type="submit" onclick="postClick()"><span></span>传递给OC</button>
+    </div>
+    <div>
+        <div>
+            <input type="button" value="分享" onclick="shareClick()" />
+        </div>
+        <div>
+            <input type="button" value="相机" onclick="cameraClick()" />
+        </div>
+        <div>
+            <h1>回调展示区</h1>
+            <textarea id ="returnValue" type="value" rows="5" cols="150">
+            </textarea>
+        </div>
+        
+    </div>
+</body>
+
+<style>
+    a{
+<!--        text-decoration:none;               /* 去除a标签自带下划线   */-->
+<!--        border:1px solid #999;-->
+<!--        background-color: #F0F0F0;-->
+<!--        float:left;                         /* 设置浮动 */-->
+        color:blue;
+        text-align:center;
+        margin:2px 5px;
+        width:100px;
+        height:20px;
+        font-size:80px;
+    }
+
+    input{
+        width:600px;
+        height:80px;
+        font-size:30px;
+    }
+
+    button{
+        width:200px;
+        height:100px;
+        font-size:30px;
+    }
+    textarea{
+        font-size:20px;
+    }
+</style>
+</html>
