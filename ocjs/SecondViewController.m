@@ -49,11 +49,10 @@
     _progressView.tintColor = [UIColor orangeColor];
     
     self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, _progressView.frame.size.height, SCRREN_WIDTH, self.view.frame.size.height - _progressView.frame.size.height) configuration:config];
-    self.webView.navigationDelegate = self;
     self.webView.backgroundColor = [UIColor whiteColor];
+    self.webView.navigationDelegate = self;
     self.webView.UIDelegate = self;
-    
-    
+        
     
     [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
     
@@ -184,7 +183,7 @@
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         completionHandler();
     }]];
-    
+
     [self presentViewController:alert animated:YES completion:NULL];
     NSLog(@"%@", message);
     
@@ -236,8 +235,15 @@
     NSString *JSResult = [NSString stringWithFormat:@"shareResult('%@','%@','%@')",title,content,url];
     //OC调用JS
     [self.webView evaluateJavaScript:JSResult completionHandler:^(id _Nullable result, NSError * _Nullable error) {
-        NSLog(@"%@", error);
+        
+        if (error) {
+            NSLog(@"%@", error);
+        }else{
+            NSLog(@"%s", __FUNCTION__);
+        }
+        
     }];
+    
 }
 
 - (void)postClick:(NSString *)postString{

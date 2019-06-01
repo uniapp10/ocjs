@@ -22,22 +22,13 @@
     
     CGRect rect = [UIScreen mainScreen].bounds;
     CGFloat margin = 10;
-    UIButton *btn_left = [[UIButton alloc] initWithFrame:CGRectMake(margin, 50, (rect.size.width - 3 * margin)/2, 50)];
-    btn_left.backgroundColor = [UIColor redColor];
-    [btn_left setTitle:@"Start" forState:(UIControlStateNormal)];
-    [btn_left addTarget:self action:@selector(btn_leftClick) forControlEvents:(UIControlEventTouchUpInside)];
     
-    UIButton *btn_right = [[UIButton alloc] initWithFrame:CGRectMake(2 * margin + (rect.size.width - 3 * margin)/2, 50, (rect.size.width - 3 * margin)/2, 50)];
-    btn_right.backgroundColor = [UIColor greenColor];
-    [btn_right setTitle:@"End" forState:(UIControlStateNormal)];
+    UIButton *btn_right = [[UIButton alloc] initWithFrame:CGRectMake(margin, 50, (rect.size.width - 2 * margin), 50)];
+    btn_right.backgroundColor = [UIColor orangeColor];
+    [btn_right setTitle:@"跳转网页" forState:(UIControlStateNormal)];
     [btn_right addTarget:self action:@selector(btn_rightClick) forControlEvents:(UIControlEventTouchUpInside)];
     
-    [self.view addSubview:btn_left];
     [self.view addSubview:btn_right];
-    
-}
-
-- (void)btn_leftClick{
     
 }
 

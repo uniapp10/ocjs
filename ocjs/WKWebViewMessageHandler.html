@@ -1,9 +1,40 @@
 <!DOCTYPE html>
-<html lang="zxx">
-
+<html >
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8">
 <head>
-
+   
 <title>Test</title>
+
+<style>
+    a{
+        // <!--        text-decoration:none;               /* 去除a标签自带下划线   */-->
+       // <!--        border:1px solid #999;-->
+        //<!--        background-color: #F0F0F0;-->
+        //<!--        float:left;                         /* 设置浮动 */-->
+        //color:blue;
+        text-align:center;
+        margin:2px 5px;
+        width:100px;
+        height:20px;
+        font-size:80px;
+    }
+
+    input{
+        width:600px;
+        height:80px;
+        font-size:30px;
+    }
+
+    button{
+        width:200px;
+        height:100px;
+        font-size:30px;
+    }
+    textarea{
+        font-size:20px;
+        width:100%;
+    }
+</style>
 
 <script>
     function shareClick() {        window.webkit.messageHandlers.showMsg.postMessage({title:'uniapp',content:'一切从零开始',url:'https://github.com/uniapp10'});
@@ -55,40 +86,12 @@
         </div>
         <div>
             <h1>回调展示区</h1>
-            <textarea id ="returnValue" type="value" rows="5" cols="150">
+            <textarea id ="returnValue" type="value" rows="5">
             </textarea>
         </div>
         
     </div>
 </body>
 
-<style>
-    a{
-<!--        text-decoration:none;               /* 去除a标签自带下划线   */-->
-<!--        border:1px solid #999;-->
-<!--        background-color: #F0F0F0;-->
-<!--        float:left;                         /* 设置浮动 */-->
-        color:blue;
-        text-align:center;
-        margin:2px 5px;
-        width:100px;
-        height:20px;
-        font-size:80px;
-    }
 
-    input{
-        width:600px;
-        height:80px;
-        font-size:30px;
-    }
-
-    button{
-        width:200px;
-        height:100px;
-        font-size:30px;
-    }
-    textarea{
-        font-size:20px;
-    }
-</style>
 </html>
